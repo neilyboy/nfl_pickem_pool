@@ -4,6 +4,7 @@ from utils.database import load_picks, load_players, save_pick, save_player, loa
 from utils.scoring import calculate_scores
 
 app = Flask(__name__)
+players = []
 
 @app.route('/')
 def index():
