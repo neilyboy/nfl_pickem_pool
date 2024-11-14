@@ -9,10 +9,18 @@
 <body>
     <div class="container my-4">
         <h1 class="text-center">NFL Games This Week</h1>
-            <nav>
-        <a href="{{ url_for('make_picks') }}">Make Picks</a>
-        <a href="{{ url_for('leaderboard') }}">Leaderboard</a>
-        <a href="{{ url_for('add_player') }}">Add Player</a>
+<h2>Current Players:</h2>
+<ul>
+    {% for player in players %}
+        <li>{{ player }}</li>
+    {% endfor %}
+</ul>
+
+<nav>
+    <a href="{{ url_for('make_picks') }}">Make Picks</a>
+    <a href="{{ url_for('leaderboard') }}">Leaderboard</a>
+    <a href="{{ url_for('add_player') }}">Add Player</a>
+</nav>
     </nav>
         <div class="row row-cols-1 row-cols-md-2 g-4">
             {% for game in games %}
