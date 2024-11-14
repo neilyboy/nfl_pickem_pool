@@ -2,7 +2,28 @@ from flask import Flask, render_template, request, redirect, url_for
 from utils.espn_api import fetch_nfl_games, fetch_live_scores
 from utils.database import load_picks, load_players, save_pick, save_player, load_leaderboard
 from utils.scoring import calculate_scores
+import os
+import json
 
+# Ensure the 'data' folder exists
+if not os.path.exists('data'):
+    os.makedirs('data')
+
+# Check if leaderboard.json exists, if not, create an empty file
+leaderboard_file = 'data/leaderboard.json'
+if not os.path.exists(leaderboard_file):
+    with open(leaderboard_file, 'w') as f:
+        json.dump([], f)  # Initialize with an empty list
+# Function to load leaderboard data from JSON file
+def load_leaderboard():
+    with open(leaderboard_file, 'r') as f:
+        return json.load(f)
+
+# Function to save leaderboard data to JSON file
+def save_leaderboard(data):
+    with open(leaderboard_file, 'w') as f:
+        json.dump(data, f, indent=4)
+        
 app = Flask(__name__)
 players = []
 
