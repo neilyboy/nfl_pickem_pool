@@ -9,7 +9,7 @@ players = []
 @app.route('/')
 def index():
     games = fetch_nfl_games()  # Fetch the current week's games
-    return render_template('index.html', games=games)
+    return render_template('index.html', players=players, games=games)
 
 @app.route('/make_picks', methods=['GET', 'POST'])
 def make_picks():
