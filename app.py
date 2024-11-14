@@ -36,5 +36,6 @@ def update_scores():
     leaderboard = calculate_scores(games, players)
     return redirect(url_for('leaderboard'))
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
+
