@@ -28,6 +28,18 @@ def leaderboard():
     leaderboard_data = load_leaderboard()
     return render_template('leaderboard.html', players=players, leaderboard=leaderboard_data)
 
+@app.route('/add_player', methods=['GET', 'POST'])
+def add_player():
+    if request.method == 'POST':
+        # Code to add player to the database
+        return redirect(url_for('index'))
+    return render_template('add_player.html')
+
+@app.route('/make_picks')
+def make_picks():
+    # Code to display the interface for making weekly picks
+    return render_template('make_picks.html')
+
 @app.route('/update_scores')
 def update_scores():
     # Fetch live scores and update weekly results
