@@ -1,0 +1,19 @@
+nfl_pickem_pool/
+├── app.py                # Main Flask application
+├── requirements.txt      # Lists all dependencies
+├── static/
+│   ├── css/
+│   │   └── styles.css    # Custom CSS for additional styling
+│   └── images/           # Folder for storing team logos
+├── templates/
+│   ├── index.html        # Home page for game listings and picks
+│   ├── leaderboard.html  # Leaderboard with weekly and overall scores
+│   ├── picks.html        # Weekly pick submission form
+├── data/
+│   ├── scores.json       # Stores weekly game data from ESPN API
+│   ├── picks.json        # Stores user picks for each week
+│   ├── players.json      # Stores player information and statistics
+└── utils/
+    ├── espn_api.py       # Manages fetching game data from the ESPN API
+    ├── database.py       # Handles reading/writing to JSON files
+    └── scoring.py        # Handles scoring, tiebreakers, and stats calculations
