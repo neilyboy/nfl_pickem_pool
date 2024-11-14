@@ -35,13 +35,14 @@ def add_player():
         # Get the player name from the form
         player_name = request.form.get('player_name')
         
-        # Add the player to the database or list (this example uses a simple list for demonstration)
-        players.append(player_name)  # Assuming 'players' is a list storing player names
+        # Add the player to the list
+        players.append(player_name)
         
         # Redirect to the home page or another page after adding the player
         return redirect(url_for('index'))
     
     return render_template('add_player.html')
+
 
 
 @app.route('/update_scores')
